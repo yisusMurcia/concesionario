@@ -4,4 +4,4 @@ Además permite ir modificando la velocidad actual de cada uno de los autos, y s
 
 
 Vista del diagrama UML:
-![Diagrama UML.png](Diagrama-UML.png)
+![Diagrama-UML.png](Diagrama-UML.png)
