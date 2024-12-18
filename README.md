@@ -1,7 +1,6 @@
 # Concesionario
-Este repo perimite crear y visualizar diferentes modelos de autos
-Además permite ir modificando la velocidad actual de cada uno de los autos, y si se llega a superar el límite de velocidad se aplicará una multa
+This repo allows you to create different models for vehicles and acelerate it, also, when the vehicle exceed the speed limit you´ll get a fine 
 
 
-Vista del diagrama UML:
+Diagramm UML:
 ![Diagrama-UML.png](Diagrama-UML.png)

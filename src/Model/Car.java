@@ -72,7 +72,7 @@ public class Car {
         return numOfDoors;
     }
 
-    public void acelerate(int speed){
+    public void accelerate(int speed){
         this.speed += speed;
 
         if(this.speed >= maxSpeed){
