@@ -32,7 +32,7 @@ public class MainView {
             option = scan.nextInt();
         }catch (InputMismatchException e){
             scan.nextLine();
-            System.out.println("Somethin go wrong, lets try again");
+            System.out.println("Something go wrong, lets try again");
             option = getOption();
         }
         return option;

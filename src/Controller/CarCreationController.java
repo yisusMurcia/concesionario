@@ -7,11 +7,9 @@ import Model.FuelType;
 import View.CarCreationView;
 
 public class CarCreationController {
-    private Controller mainControl;
     private final CarCreationView view;
     public CarCreationController(Controller control){
         view = new CarCreationView();
-        mainControl = control;
         Car car = new Car(view.getCarBrand(), view.getMotorCapability(), getFuelType(), getCarType(), getCarColor(), view.getMaxSpeed(), view.getNumOfSeats(), view.getNumOfDoors());
         control.addCar(car);
     }

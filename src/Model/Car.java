@@ -1,17 +1,17 @@
 package Model;
 
 public class Car {
-    private String brand;
-    private int yearModel;
-    private int motorCapability;
-    private FuelType fuelType;
-    private CarType carType;
-    private CarColor color;
-    private int numOfSeats;
+    private final String brand;
+    private final int yearModel;
+    private final int motorCapability;
+    private final FuelType fuelType;
+    private final CarType carType;
+    private final CarColor color;
+    private final int numOfSeats;
     private int speed;
     private final double maxSpeed;
     private int fine;
-    private int numOfDoors;
+    private final int numOfDoors;
 
     public Car(String brand, int motorCapability, FuelType fuelType, CarType carType, CarColor color, double maxSpeed, int numOfSeats, int numOfDoors){
         fine = 0;

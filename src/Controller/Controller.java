@@ -6,8 +6,8 @@ import  View.*;
 import java.util.ArrayList;
 
 public class Controller {
-    private MainView view;
-    private ArrayList<Car> carList = new ArrayList<>();
+    private final MainView view;
+    private final ArrayList<Car> carList = new ArrayList<>();
 
     public Controller(){
         view = new View.MainView();
@@ -29,7 +29,6 @@ public class Controller {
                     break;
                 case 2:
                     Car car = getCar();
-                    System.out.println(car);
                     break;
                 case 3:
                     new CarCreationController(this);
