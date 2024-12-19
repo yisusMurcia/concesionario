@@ -9,11 +9,11 @@ public class Car {
     private CarColor color;
     private int numOfSeats;
     private int speed;
-    private final int maxSpeed;
+    private final double maxSpeed;
     private int fine;
     private int numOfDoors;
 
-    public Car(String brand, int motorCapability, FuelType fuelType, CarType carType, CarColor color, int maxSpeed, int numOfSeats, int numOfDoors){
+    public Car(String brand, int motorCapability, FuelType fuelType, CarType carType, CarColor color, double maxSpeed, int numOfSeats, int numOfDoors){
         fine = 0;
         speed = 0;
         yearModel = 2025;
@@ -64,7 +64,7 @@ public class Car {
         return numOfSeats;
     }
 
-    public int getMaxSpeed() {
+    public double getMaxSpeed() {
         return maxSpeed;
     }
 
@@ -76,7 +76,7 @@ public class Car {
         this.speed += speed;
 
         if(this.speed >= maxSpeed){
-            this.speed = maxSpeed;
+            this.speed = (int) maxSpeed;
             fine += 25;
         } else if (this.speed < 0) {
             this.speed = 0;
