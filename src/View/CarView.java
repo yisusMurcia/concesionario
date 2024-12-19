@@ -14,15 +14,19 @@ public class CarView {
 
     public static void displayCarInfo(Car car){
         System.out.println("""
-                Brand:"""+ car.getBrand() + " " + car.getYearModel()+
-                "Motor capability: " + car.getMotorCapability()+
-                "Fuel type: " + car.getFuelType()+
-                "Car type: " + car.getCarType()+
-                "Color: " + car.getColor()+
-                "Number of seats; " + car.getNumOfSeats()+
-                "Number of doors: " + car.getNumOfDoors()+
-                "Max speed: " + car.getMaxSpeed()
+                Brand: """+ car.getBrand() + " " + car.getYearModel()+
+                "\nMotor capability: " + car.getMotorCapability()+
+                "\nFuel type: " + car.getFuelType()+
+                "\nCar type: " + car.getCarType()+
+                "\nColor: " + car.getColor()+
+                "\nNumber of seats; " + car.getNumOfSeats()+
+                "\nNumber of doors: " + car.getNumOfDoors()+
+                "\nMax speed: " + car.getMaxSpeed()
         );
+    }
+
+    public static void displayBrand(Car car){
+        System.out.println(car.getBrand());
     }
 
     public void displayMenu(){

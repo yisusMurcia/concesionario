@@ -1,8 +1,9 @@
 package View;
 
+import Model.CarColor;
 import Model.CarType;
+import Model.FuelType;
 
-import java.awt.image.RescaleOp;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -74,5 +75,69 @@ public class CarCreationView {
         }
 
         return maxSpeed;
+    }
+
+    public int selectCarType(){
+        System.out.println("Please select the car type");
+        int typeNum = 1;
+        for(CarType type : CarType.values()){
+            System.out.println(typeNum + " " + type);
+            typeNum ++;
+        }
+        try {
+            num = scan.nextInt();
+        }catch (InputMismatchException e){
+            scan.next();
+            System.out.println("Something fail, try again");
+            num = selectCarType();
+        }
+
+        return num;
+    }
+
+    public int selectCarFuelType(){
+        System.out.println("Please select the fuel type");
+        int typeNum = 1;
+        for(FuelType type : FuelType.values()){
+            System.out.println(typeNum + " " + type);
+            typeNum ++;
+        }
+        try {
+            num = scan.nextInt();
+        }catch (InputMismatchException e){
+            scan.next();
+            System.out.println("Something fail, try again");
+            num = selectCarFuelType();
+        }
+
+        return num;
+    }
+
+    public int selectColor(){
+        System.out.println("Please select the car color");
+        int typeNum = 1;
+        for(CarColor type : CarColor.values()){
+            System.out.println(typeNum + " " + type);
+            typeNum ++;
+        }
+
+        try {
+            num = scan.nextInt();
+        }catch (InputMismatchException e){
+            scan.next();
+            System.out.println("Something fail, try again");
+            num = selectColor();
+        }
+
+        return num;
+    }
+
+    public void close(){
+        scan.close();
+        System.out.println("Car creation succeed");
+    }
+
+    public void alertIntOutsideLength(){
+        System.out.println("The integer isn´t in the length of the options");
     }
 }

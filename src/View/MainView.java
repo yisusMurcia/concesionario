@@ -2,6 +2,7 @@ package View;
 
 import Model.Car;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -17,7 +18,7 @@ public class MainView {
     public void displayMenu(){
         System.out.println("""
                 Menu:
-                1. Create car model.
+                1. Display car models.
                 2. Select a car model.
                 3. Create a car model.
                 \t0. Exit""");
@@ -25,16 +26,15 @@ public class MainView {
 
     public int getOption(){
         System.out.println("Please select an option");
-
         int option;
+
         try {
             option = scan.nextInt();
         }catch (InputMismatchException e){
-            scan.next();
+            scan.nextLine();
             System.out.println("Somethin go wrong, lets try again");
             option = getOption();
         }
-
         return option;
     }
 
@@ -42,18 +42,18 @@ public class MainView {
         System.out.println("You selected an invalid option or one in development");
     }
 
-    public void displayCarModels(Car[] carsModels){
-        for(Car car: carsModels){
-            CarView.displayCarInfo(car);
+    public String selectCar(ArrayList<Car> carArrayList){
+        System.out.println("car brands: ");
+        for(Car car: carArrayList){
+            CarView.displayBrand(car);
         }
-    }
+        String brand;
+        do {
+            System.out.println("Please enter the car model");
+            brand = scan.nextLine();
+        }while (brand == null || brand.isEmpty());
 
-    public String selectCar(Car[] cars){
-        displayCarModels(cars);
-
-        System.out.println("Please enter the car model");
-
-        return scan.nextLine();
+        return brand;
     }
 
     public void exit(){
