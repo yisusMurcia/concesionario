@@ -2,6 +2,7 @@ package View;
 
 import Model.Car;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CarView {
@@ -32,10 +33,25 @@ public class CarView {
     public void displayMenu(){
         System.out.println("""
                 Menu:
-                1. Acelerate
-                2. Get fine status
-                3. Display model info
-                4. Delete car
+                1. Accelerate
+                2. Decelerate
+                3. Get fine status
+                4. Display model info
+                5. Delete car
                 \t 0. Exit""");
+    }
+
+    public int getOption(){
+        System.out.println("Please select an option");
+        int option;
+
+        try {
+            option = scan.nextInt();
+        }catch (InputMismatchException e){
+            scan.nextLine();
+            System.out.println("Something go wrong, lets try again");
+            option = getOption();
+        }
+        return option;
     }
 }

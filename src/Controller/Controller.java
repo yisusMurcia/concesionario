@@ -29,6 +29,11 @@ public class Controller {
                     break;
                 case 2:
                     Car car = getCar();
+                    if(car == null){
+                        view.alertErrorSelectingCar();
+                    }else{
+                        new CarController(car);
+                    }
                     break;
                 case 3:
                     new CarCreationController(this);

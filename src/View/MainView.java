@@ -56,6 +56,10 @@ public class MainView {
         return brand;
     }
 
+    public void alertErrorSelectingCar(){
+        System.out.println("The car selected isn´t valid");
+    }
+
     public void exit(){
         System.out.println("Thanks for using this car dealer");
         scan.close();
