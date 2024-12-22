@@ -8,18 +8,21 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class CarCreationView {
-    private String brand;
     private int num;
     private final Scanner scan;
 
-    public CarCreationView(){
+    public CarCreationView(Scanner scan){
         System.out.println("Lets create a new car model");
-        scan = new Scanner(System.in);
+        this.scan = scan;
     }
 
     public String getCarBrand(){
         System.out.println("Please enter the car´s model");
-        return scan.nextLine();
+        String brand;
+        do{
+            brand = scan.nextLine();
+        }while (brand.isEmpty());
+        return brand;
     }
 
     public int getMotorCapability(){
@@ -133,7 +136,6 @@ public class CarCreationView {
     }
 
     public void close(){
-        scan.close();
         System.out.println("Car creation succeed");
     }
 

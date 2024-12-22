@@ -15,6 +15,10 @@ public class MainView {
         System.out.println("Welcome, this is our car dealer");
     }
 
+    public Scanner getScan() {
+        return scan;
+    }
+
     public void displayMenu(){
         System.out.println("""
                 Menu:

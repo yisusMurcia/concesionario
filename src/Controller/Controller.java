@@ -32,7 +32,7 @@ public class Controller {
                     if(car == null){
                         view.alertErrorSelectingCar();
                     }else{
-                        new CarController(car);
+                        new CarController(car, this);
                     }
                     break;
                 case 3:
@@ -60,5 +60,20 @@ public class Controller {
         }
 
         return null;
+    }
+
+    public boolean deleteCar(Car car){
+        for(Car carObj: carList){
+            if(carObj.getBrand().equals(car.getBrand())){
+                carList.remove(carObj);
+                return  true;
+            }
+        }
+
+        return false;
+    }
+
+    public MainView getView(){
+        return this.view;
     }
 }
