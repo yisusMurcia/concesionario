@@ -34,10 +34,11 @@ public class CarView {
                 Menu:
                 1. Accelerate
                 2. Decelerate
-                3. Get fine status
-                4. Display model info
-                5. Get car speed
-                6. Delete car
+                3. Brake
+                4. Get fine status
+                5. Display model info
+                6. Get car speed
+                7. Delete car
                 \t 0. Exit""");
     }
 

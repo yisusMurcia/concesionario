@@ -28,14 +28,17 @@ public class CarController {
                     view.displayAcceleration(car);
                     break;
                 case 3:
+                    car.brake();
+                    view.displayAcceleration(car);
+                case 4:
                     view.displayFineStatus(car);
                     break;
-                case 4:
+                case 5:
                     CarView.displayCarInfo(car);
                     break;
-                case 5:
-                    view.displayAcceleration(car);
                 case 6:
+                    view.displayAcceleration(car);
+                case 7:
                     deleteCar();
                     option = 0;
                     break;
