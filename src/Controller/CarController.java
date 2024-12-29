@@ -42,6 +42,9 @@ public class CarController {
                     deleteCar();
                     option = 0;
                     break;
+                case 8:
+                    view.displayNumOfFines(car);
+                    break;
                 case 0:
                     break;
                 default:

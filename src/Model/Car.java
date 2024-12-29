@@ -90,6 +90,10 @@ public class Car {
         return isAutomatic;
     }
 
+    public int getFineValue() {
+        return fineValue;
+    }
+
     public void brake(){
         speed = 0;
     }

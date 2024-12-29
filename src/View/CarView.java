@@ -21,7 +21,8 @@ public class CarView {
                 "\nColor: " + car.getColor()+
                 "\nNumber of seats; " + car.getNumOfSeats()+
                 "\nNumber of doors: " + car.getNumOfDoors()+
-                "\nMax speed: " + car.getMaxSpeed()
+                "\nMax speed: " + car.getMaxSpeed()+
+                "\n" + (car.isAutomatic()? "Automatic": "Manual")
         );
     }
 
@@ -39,6 +40,7 @@ public class CarView {
                 5. Display model info
                 6. Get car speed
                 7. Delete car
+                8. See fines
                 \t 0. Exit""");
     }
 
@@ -91,6 +93,10 @@ public class CarView {
 
     public void displayFineStatus(Car car){
         System.out.println(car.getFine() == 0? "Congratulations, the car has no debts": "Fine: " + car.getFine());
+    }
+
+    public void displayNumOfFines(Car car){
+        System.out.println("The car has " + car.getFine() / car.getFineValue()+ " fines");
     }
 
     public void alertCarDeleted(){
