@@ -41,6 +41,7 @@ public class CarView {
                 6. Get car speed
                 7. Delete car
                 8. See fines
+                9. Calculate travel time
                 \t 0. Exit""");
     }
 
@@ -87,6 +88,23 @@ public class CarView {
         return -decreaseSpeed;
     }
 
+    public double getDistance(){
+        double distance;
+        System.out.println("Enter the distance");
+        try{
+            distance = scan.nextDouble();
+        }catch (InputMismatchException e){
+            scan.next();
+            System.out.println("Something go wrong, try again");
+            distance = getDistance();
+        }
+
+        return distance;
+    }
+
+    public void displayTravelTime(double time){
+        System.out.println("The travel time is: " + time + " hours");
+    }
     public void displayAcceleration(Car car){
         System.out.println(car.getBrand()+ ": " + car.getSpeed() + "Km/h");
     }

@@ -45,6 +45,8 @@ public class CarController {
                 case 8:
                     view.displayNumOfFines(car);
                     break;
+                case 9:
+                    view.displayTravelTime(car.calculateTime(view.getDistance()));
                 case 0:
                     break;
                 default:
