@@ -12,8 +12,10 @@ public class Car {
     private final double maxSpeed;
     private int fine;
     private final int numOfDoors;
+    private final boolean isAutomatic;
+    private final int fineValue = 25;
 
-    public Car(String brand, int motorCapability, FuelType fuelType, CarType carType, CarColor color, double maxSpeed, int numOfSeats, int numOfDoors){
+    public Car(String brand, int motorCapability, FuelType fuelType, CarType carType, CarColor color, double maxSpeed, int numOfSeats, int numOfDoors, boolean isAutomatic){
         fine = 0;
         speed = 0;
         yearModel = 2025;
@@ -26,6 +28,7 @@ public class Car {
         this.color = color;
         this.numOfSeats = numOfSeats;
         this.numOfDoors = numOfDoors;
+        this.isAutomatic = isAutomatic;
     }
 
     public int getFine() {
@@ -77,10 +80,14 @@ public class Car {
 
         if(this.speed >= maxSpeed){
             this.speed = (int) maxSpeed;
-            fine += 25;
+            fine += fineValue;
         } else if (this.speed < 0) {
             this.speed = 0;
         }
+    }
+
+    public boolean isAutomatic() {
+        return isAutomatic;
     }
 
     public void brake(){

@@ -10,7 +10,7 @@ public class CarCreationController {
     private final CarCreationView view;
     public CarCreationController(Controller control){
         view = new CarCreationView(control.getView().getScan());
-        Car car = new Car(view.getCarBrand(), view.getMotorCapability(), getFuelType(), getCarType(), getCarColor(), view.getMaxSpeed(), view.getNumOfSeats(), view.getNumOfDoors());
+        Car car = new Car(view.getCarBrand(), view.getMotorCapability(), getFuelType(), getCarType(), getCarColor(), view.getMaxSpeed(), view.getNumOfSeats(), view.getNumOfDoors(), view.setAutomatic());
         control.addCar(car);
 
         view.close();

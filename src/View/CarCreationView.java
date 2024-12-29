@@ -135,6 +135,14 @@ public class CarCreationView {
         return num;
     }
 
+    public boolean setAutomatic(){
+        System.out.println("Is the car automatic?");
+        System.out.println("1 Yes");
+        System.out.println("2 No");
+        int num = scan.nextInt();
+        return num == 1;
+    }
+
     public void close(){
         System.out.println("Car creation succeed");
     }
