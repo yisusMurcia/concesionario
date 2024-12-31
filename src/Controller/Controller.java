@@ -1,15 +1,31 @@
 package Controller;
 
 import Model.Car;
+import Model.CarColor;
+import Model.CarType;
+import Model.FuelType;
 import  View.*;
 
+import java.io.*;
 import java.util.ArrayList;
 
 public class Controller {
     private final MainView view;
-    private final ArrayList<Car> carList = new ArrayList<>();
+    private ArrayList<Car> carList = new ArrayList<>();
 
     public Controller(){
+
+        File file = new File("cars.txt");
+        try{
+            if(!file.exists()){
+                file.createNewFile();
+                System.out.println("File created");
+            }else{
+                carList = readCars();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         view = new View.MainView();
 
         int option;
@@ -75,5 +91,51 @@ public class Controller {
 
     public MainView getView(){
         return this.view;
+    }
+
+    public void saveCar(Car car){
+        try{
+            FileWriter fileWriter = new FileWriter("cars.txt", true);
+            fileWriter.write(car.getBrand() + "\n");
+            fileWriter.write(car.getMotorCapability() + "\n");
+            fileWriter.write(car.getFuelType() + "\n");
+            fileWriter.write(car.getCarType() + "\n");
+            fileWriter.write(car.getColor() + "\n");
+            fileWriter.write(car.getNumOfSeats() + "\n");
+            fileWriter.write(car.getNumOfDoors() + "\n");
+            fileWriter.write(car.getMaxSpeed() + "\n");
+            fileWriter.write(car.isAutomatic() + "\n");
+            fileWriter.close();
+            System.out.println("Car saved");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<Car> readCars(){
+        ArrayList<Car> cars = new ArrayList<>();
+        try{
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("cars.txt"));
+            String line;
+            while((line = bufferedReader.readLine()) != null){
+                String brand = line;
+                int motorCapability = Integer.parseInt(bufferedReader.readLine());
+                String fuelType = bufferedReader.readLine();
+                String carType = bufferedReader.readLine();
+                String color = bufferedReader.readLine();
+                int numOfSeats = Integer.parseInt(bufferedReader.readLine());
+                int numOfDoors = Integer.parseInt(bufferedReader.readLine());
+                double maxSpeed = Double.parseDouble(bufferedReader.readLine());
+                boolean automatic = Boolean.parseBoolean(bufferedReader.readLine());
+
+                Car car = new Car(brand, motorCapability, FuelType.getFuelType(fuelType), CarType.getCarType(carType), CarColor.getColor(color), maxSpeed, numOfSeats, numOfDoors, automatic);
+                cars.add(car);
+            }
+            bufferedReader.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return cars;
     }
 }

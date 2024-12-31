@@ -1,0 +1,9 @@
+nissan
+1200
+ELECTRIC
+CITY
+WHITE
+5
+4
+220.0
+false

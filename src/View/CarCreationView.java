@@ -136,10 +136,16 @@ public class CarCreationView {
     }
 
     public boolean setAutomatic(){
-        System.out.println("Is the car automatic?");
+        System.out.println("Is the car automatic? Enter the number");
         System.out.println("1 Yes");
         System.out.println("2 No");
-        int num = scan.nextInt();
+        try{
+            int num = scan.nextInt();
+        }catch (InputMismatchException e){
+            scan.next();
+            System.out.println("Something fail, try again");
+            setAutomatic();
+        }
         return num == 1;
     }
 
