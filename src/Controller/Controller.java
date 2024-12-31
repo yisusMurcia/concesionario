@@ -19,13 +19,10 @@ public class Controller {
         try{
             if(!file.exists()){
                 file.createNewFile();
-                System.out.println("File created");
             }else{
                 carList = readCars();
             }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+        }catch (Exception _){}
         view = new View.MainView();
 
         int option;
@@ -93,22 +90,24 @@ public class Controller {
         return this.view;
     }
 
-    public void saveCar(Car car){
+    public void saveCars(){
         try{
-            FileWriter fileWriter = new FileWriter("cars.txt", true);
-            fileWriter.write(car.getBrand() + "\n");
-            fileWriter.write(car.getMotorCapability() + "\n");
-            fileWriter.write(car.getFuelType() + "\n");
-            fileWriter.write(car.getCarType() + "\n");
-            fileWriter.write(car.getColor() + "\n");
-            fileWriter.write(car.getNumOfSeats() + "\n");
-            fileWriter.write(car.getNumOfDoors() + "\n");
-            fileWriter.write(car.getMaxSpeed() + "\n");
-            fileWriter.write(car.isAutomatic() + "\n");
+            FileWriter fileWriter = new FileWriter("cars.txt");
+            for (Car car: carList){
+                fileWriter.write(car.getBrand() + "\n");
+                fileWriter.write(car.getMotorCapability() + "\n");
+                fileWriter.write(car.getFuelType() + "\n");
+                fileWriter.write(car.getCarType() + "\n");
+                fileWriter.write(car.getColor() + "\n");
+                fileWriter.write(car.getNumOfSeats() + "\n");
+                fileWriter.write(car.getNumOfDoors() + "\n");
+                fileWriter.write(car.getMaxSpeed() + "\n");
+                fileWriter.write(car.isAutomatic() + "\n");
+            }
             fileWriter.close();
-            System.out.println("Car saved");
+            view.notifyCarsRecovered();
         }catch (Exception e){
-            e.printStackTrace();
+            view.notifyCarsNotRecovered();
         }
     }
 
@@ -118,7 +117,6 @@ public class Controller {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("cars.txt"));
             String line;
             while((line = bufferedReader.readLine()) != null){
-                String brand = line;
                 int motorCapability = Integer.parseInt(bufferedReader.readLine());
                 String fuelType = bufferedReader.readLine();
                 String carType = bufferedReader.readLine();
@@ -128,12 +126,12 @@ public class Controller {
                 double maxSpeed = Double.parseDouble(bufferedReader.readLine());
                 boolean automatic = Boolean.parseBoolean(bufferedReader.readLine());
 
-                Car car = new Car(brand, motorCapability, FuelType.getFuelType(fuelType), CarType.getCarType(carType), CarColor.getColor(color), maxSpeed, numOfSeats, numOfDoors, automatic);
+                Car car = new Car(line, motorCapability, FuelType.getFuelType(fuelType), CarType.getCarType(carType), CarColor.getColor(color), maxSpeed, numOfSeats, numOfDoors, automatic);
                 cars.add(car);
             }
             bufferedReader.close();
         } catch (Exception e){
-            e.printStackTrace();
+            view.notifyCarsNotRecovered();
         }
 
         return cars;

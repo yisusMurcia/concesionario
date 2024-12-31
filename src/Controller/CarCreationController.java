@@ -13,7 +13,7 @@ public class CarCreationController {
         Car car = new Car(view.getCarBrand(), view.getMotorCapability(), getFuelType(), getCarType(), getCarColor(), view.getMaxSpeed(), view.getNumOfSeats(), view.getNumOfDoors(), view.setAutomatic());
 
         control.addCar(car);
-        control.saveCar(car);
+        control.saveCars();
 
         view.close();
     }

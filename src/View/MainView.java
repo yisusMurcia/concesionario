@@ -68,4 +68,11 @@ public class MainView {
         System.out.println("Thanks for using this car dealer");
         scan.close();
     }
+
+    public void notifyCarsRecovered(){
+        System.out.println("Cars recovered");
+    }
+    public void notifyCarsNotRecovered(){
+        System.out.println("Cars not recovered");
+    }
 }

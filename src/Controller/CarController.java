@@ -26,10 +26,12 @@ public class CarController {
                 case 2:
                     car.accelerate(view.getDeceleration());
                     view.displayAcceleration(car);
+                    control.saveCars();
                     break;
                 case 3:
                     car.brake();
                     view.displayAcceleration(car);
+                    control.saveCars();
                 case 4:
                     view.displayFineStatus(car);
                     break;
@@ -41,6 +43,7 @@ public class CarController {
                 case 7:
                     deleteCar();
                     option = 0;
+                    control.saveCars();
                     break;
                 case 8:
                     view.displayNumOfFines(car);
